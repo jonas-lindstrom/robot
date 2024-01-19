@@ -8,7 +8,12 @@ namespace Jli.RobotApp
         // being more robust. There are a lot of assumtions on the input.
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter configuration eg. 4,4,2,2");
+
+            // Running the program .exe will not be intuitive
+            // But I should not add anything more to standard out 
+            // Hence the // code lines
+
+            // Console.WriteLine("Enter configuration eg. 4,4,2,2");
             string? input = Console.ReadLine();
             if (input != null && input.Length >= 7)
             {
@@ -23,7 +28,7 @@ namespace Jli.RobotApp
             }
             else
             {
-                Console.WriteLine("Running with default values ie a rectangle with 4 x 4 squares. A robot in square 2, 2, facing north.");
+                // Console.WriteLine("Running with default values ie a rectangle with 4 x 4 squares. A robot in square 2, 2, facing north.");
                 int[] areaMatrix = [4, 4];
                 Point[] startingPoints = [new Point(2, 2)];
                 var runner = RobotRunner.GetInstance();
@@ -31,7 +36,7 @@ namespace Jli.RobotApp
                 runner.SetUpRobots(startingPoints);
             }
 
-            Console.WriteLine("Enter a command string ending with a 0, eg. 1,4,1,3,2,3,2,4,1,0");
+            // Console.WriteLine("Enter a command string ending with a 0, eg. 1,4,1,3,2,3,2,4,1,0");
             input = Console.ReadLine();
             if (input != null)
             {
@@ -45,6 +50,9 @@ namespace Jli.RobotApp
                 }
 
                 Console.WriteLine($"[{runner.GetRobot(0).GetXPosition()}, {runner.GetRobot(0).GetYPosition()}]"); // We only support input for one robot 
+                
+                // Console.WriteLine("Press enter to leave.");
+                // Console.ReadLine();
             }
         }
 
